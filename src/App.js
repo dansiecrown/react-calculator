@@ -55,9 +55,6 @@ function App() {
 
       <div className="calculator">
         <div className="screen">
-          <div className="toggle-container">
-            <button>change</button>
-          </div>
           <span className="sub-text">{calc || "0.00"}</span>
           <span className="result">{result || ""}</span>
         </div>
