@@ -1,17 +1,16 @@
-import './App.css';
-import { useState } from 'react';
+import "./App.css";
+import { useState } from "react";
 
 function App() {
-
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");
 
-  const ops = ['/', '*', '-', '+', '.']
+  const ops = ["/", "*", "-", "+", "."];
 
-  const updateCalc = value => {
+  const updateCalc = (value) => {
     if (
-      ops.includes(value) && calc === "" ||
-      ops.includes(value) && ops.includes(calc.slice(-1))
+      (ops.includes(value) && calc === "") ||
+      (ops.includes(value) && ops.includes(calc.slice(-1)))
     ) {
       return;
     }
@@ -20,26 +19,24 @@ function App() {
     if (!ops.includes(value)) {
       setResult(eval(calc + value).toString());
     }
-  }
+  };
 
   const allDigits = () => {
     const digits = [];
 
     for (let i = 1; i < 10; i++) {
       digits.push(
-        <button
-          onClick={() => updateCalc(i.toString())}
-          key={i}>
+        <button onClick={() => updateCalc(i.toString())} key={i}>
           {i}
         </button>
-      )
+      );
     }
     return digits;
-  }
+  };
 
   const equals = () => {
-    setCalc(eval(calc).toString())
-  }
+    setCalc(eval(calc).toString());
+  };
 
   const del = () => {
     if (calc === "") {
@@ -47,12 +44,11 @@ function App() {
     }
     const value = calc.slice(0, -1);
 
-    setCalc(value)
-  }
+    setCalc(value);
+  };
 
   return (
     <div className="App">
-
       <div className="calculator">
         <div className="screen">
           {result ? <span className="result">{result}</span> : ""}
@@ -67,7 +63,6 @@ function App() {
           <button onClick={() => updateCalc("-")}>-</button>
 
           <button onClick={del}>DEL</button>
-
         </div>
 
         <div className="digits">
@@ -76,8 +71,6 @@ function App() {
           <button onClick={() => updateCalc(".")}>.</button>
           <button onClick={equals}>=</button>
         </div>
-
-
       </div>
     </div>
   );
