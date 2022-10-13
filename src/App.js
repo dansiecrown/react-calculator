@@ -42,7 +42,7 @@ function App() {
   }
 
   const del = () => {
-    if (calc == '') {
+    if (calc === "") {
       return;
     }
     const value = calc.slice(0, -1);
@@ -55,8 +55,9 @@ function App() {
 
       <div className="calculator">
         <div className="screen">
+          {result ? <span className="result">{result}</span> : ""}
           <span className="sub-text">{calc || "0.00"}</span>
-          <span className="result">{result || ""}</span>
+          {/* <span className="result">{result || ""}</span> */}
         </div>
 
         <div className="operators">
