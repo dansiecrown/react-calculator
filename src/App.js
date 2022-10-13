@@ -16,9 +16,9 @@ function App() {
     }
     setCalc(calc + value);
 
-    if (!ops.includes(value)) {
-      setResult(eval(calc + value).toString());
-    }
+    // if (!ops.includes(value)) {
+    //   setResult(eval(calc + value).toString());
+    // }
   };
 
   const allDigits = () => {
@@ -35,7 +35,8 @@ function App() {
   };
 
   const equals = () => {
-    setCalc(eval(calc).toString());
+    setCalc("");
+    setResult(eval(calc).toString());
   };
 
   const del = () => {
@@ -46,6 +47,11 @@ function App() {
 
     setCalc(value);
   };
+
+  const ac = () => {
+    setCalc("");
+    setResult("");
+  }
 
   return (
     <div className="App">
@@ -63,6 +69,7 @@ function App() {
           <button onClick={() => updateCalc("-")}>-</button>
 
           <button onClick={del}>DEL</button>
+          <button onClick={ac}>AC</button>
         </div>
 
         <div className="digits">
